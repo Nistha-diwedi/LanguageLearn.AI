@@ -1,5 +1,5 @@
 // AI API Key
-const apiKey = "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"; // Replace with your API key
+const apiKey = ""; // Replace with your API key
 const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
 
 // Retrieve user details from local storage
@@ -231,3 +231,4 @@ async function sendMessage() {
     sendMessageToAI(userInput);
     document.getElementById('user-input').value = '';
 }
+
