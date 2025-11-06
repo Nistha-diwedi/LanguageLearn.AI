@@ -1,6 +1,6 @@
 // AI API Key
 const apiKey = ""; // Replace with your API key
-const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+const apiUrl = "";
 
 // Retrieve user details from local storage
 const username = localStorage.getItem('username') || 'User';
@@ -231,4 +231,5 @@ async function sendMessage() {
     sendMessageToAI(userInput);
     document.getElementById('user-input').value = '';
 }
+
 
