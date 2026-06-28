@@ -95,33 +95,42 @@
 
 
     <div class="aianduserconversationboxblur">
-        <div class="aianduserconversationbox">
+        <div class="chat-card">
 
-            <center>
-                <div class="extras_conversationbox">
-                    <div class="extras">
-                        <button class="closebtn" onclick="hideaichattigwindow()">Close</button>
-
-                        <button onclick="startVoiceChat()">Voice Mode&nbsp;<i class="fa fa-microphone"></i></button>
-                        <div class="visualiser"></div>
-                        <button onclick="stopVoiceChat()" style="color: red; font-size: 14px; margin-top: 100px;">Stop Voice Chat</button>
-
+            <header class="chat-header">
+                <div class="chat-identity">
+                    <div class="chat-avatar">L²</div>
+                    <div class="chat-meta">
+                        <span class="chat-name">Fluencer AI</span>
+                        <span class="chat-status"><i class="status-dot"></i> Online · Ready to teach</span>
                     </div>
-        
-                    
-                        <div id="conversation">
-                            <!-- Conversation will be displayed here -->
-                        </div>
-                    
                 </div>
-            </center>
+                <div class="chat-actions">
+                    <button class="voice-btn" id="voiceToggle" onclick="startVoiceChat()" title="Start voice mode">
+                        <i class="fa fa-microphone"></i>
+                    </button>
+                    <button class="voice-btn stop" onclick="stopVoiceChat()" title="Stop voice mode">
+                        <i class="fas fa-stop"></i>
+                    </button>
+                    <button class="close-btn" onclick="hideaichattigwindow()" title="Close chat">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+            </header>
 
-            <center>
-                <div class="textareaandbtnbox">
-                    <input id="user-input" type="text" placeholder="Type your message...">
-                    <button class="sendbtn" onclick="sendMessage()"><i class="fas fa-arrow-up"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div id="conversation" class="chat-messages">
+                <div class="chat-empty">
+                    <div class="chat-empty-icon">L²</div>
+                    <p>Start a conversation with Fluencer — type a message or use voice mode.</p>
                 </div>
-            </center>
+            </div>
+
+            <footer class="chat-input-bar">
+                <input id="user-input" type="text" placeholder="Type your message..." autocomplete="off"
+                    onkeydown="if(event.key==='Enter')sendMessage()">
+                <button class="sendbtn" onclick="sendMessage()" title="Send"><i class="fas fa-arrow-up"></i></button>
+            </footer>
+
         </div>
     </div>
 
