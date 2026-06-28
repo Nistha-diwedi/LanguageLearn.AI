@@ -257,23 +257,64 @@ html {
 }
 
 .chatwithypr {
-    display: none;
-    width: 70px;
-    height: 70px;
-    font-size: 17px;
+    display: none;            /* JS switches this to flex after the user saves details */
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    font-size: 26px;
+    color: #fff;
     cursor: pointer;
     border-radius: 50%;
     position: fixed;
     right: 40px;
     bottom: 40px;
-    border: 1.5px solid black;
+    border: none;
     font-family: "SUSE", sans-serif;
-    -webkit-box-shadow: 10px 30px 60px 0px rgba(231, 184, 255, 1);
-    -moz-box-shadow: 10px 30px 60px 0px rgba(231, 184, 255, 1);
-    box-shadow: 10px 10px 70px 0px rgba(231, 184, 255, 1);
-    background-size: cover;
-    transition: .2s ease-in-out;
-    background-image: url(https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/icons/Ai%20Dark.png);
+    background: linear-gradient(135deg, #6f6ff0, #9a6ff0);
+    transition: transform 0.2s ease, filter 0.2s ease;
+    animation: chatBtnPulse 2.2s infinite;
+}
+
+.chatwithypr:hover {
+    transform: scale(1.08);
+    filter: brightness(1.08);
+}
+
+.chatwithypr:active {
+    transform: scale(0.96);
+}
+
+/* Attention pulse so it reads as "click here to chat" */
+@keyframes chatBtnPulse {
+    0%   { box-shadow: 0 12px 30px rgba(154, 111, 240, 0.5), 0 0 0 0 rgba(154, 111, 240, 0.45); }
+    70%  { box-shadow: 0 12px 30px rgba(154, 111, 240, 0.5), 0 0 0 16px rgba(154, 111, 240, 0); }
+    100% { box-shadow: 0 12px 30px rgba(154, 111, 240, 0.5), 0 0 0 0 rgba(154, 111, 240, 0); }
+}
+
+/* Hover label/tooltip */
+.chatwithypr::after {
+    content: attr(data-tip);
+    position: absolute;
+    right: 76px;
+    top: 50%;
+    white-space: nowrap;
+    background: #16171c;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%) translateX(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.chatwithypr:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
 /* ===================== CHAT WINDOW ===================== */

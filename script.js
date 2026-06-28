@@ -60,7 +60,7 @@ function savetheuserdetails() {
     // Optionally show chat button after saving
     const chatwithyprbtn = document.querySelector('.chatwithypr');
     if (chatwithyprbtn) {
-        chatwithyprbtn.style.display = "block";
+        chatwithyprbtn.style.display = "flex";
     }
 }
 
@@ -72,7 +72,7 @@ function checkforsysprompt() {
     const chatwithyprbtn = document.querySelector('.chatwithypr');
     if (username && username !== "") {
         if (chatwithyprbtn) {
-            chatwithyprbtn.style.display = "block";
+            chatwithyprbtn.style.display = "flex";
         }
     } else {
         if (chatwithyprbtn) {
